@@ -47,6 +47,8 @@ const Sidebar = lazy(() => import("./pages/Sidebar/Sidebar"));
 const NotFound = lazy(() => import("./pages/not-found/NotFound"));
 
 // Public info pages
+// Public info pages
+// Public info pages
 const AboutUs = lazy(() => import("./pages/Public/AboutUs"));
 const ContactUs = lazy(() => import("./pages/Public/ContactUs"));
 const PrivacyPolicy = lazy(() => import("./pages/Public/PrivacyPolicy"));

@@ -902,3 +902,41 @@ export const useTransferMoney = () => {
     },
   });
 };
+
+export const useGetAgentWalletOverview = (memberId: any) => {
+  return useQuery({
+    queryKey: ["agentWalletOverview", memberId],
+    queryFn: async () => {
+      const response = await get(`/user/agent-overview/${memberId}`);
+      if (response.success) {
+        return response.data;
+      } else {
+        throw new Error(response.message || "Failed to fetch agent wallet overview");
+      }
+    },
+    enabled: !!memberId,
+  });
+};
+
+export const useAgentWalletWithdraw = (memberId: any) => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (data: { memberId: string; amount: string }) => {
+      return await post(`user/agent-withdraw/${memberId}`, data);
+    },
+    onSuccess: (response) => {
+      if (response.success) {
+        toast.success(response.message);
+        queryClient.invalidateQueries({ queryKey: ["agentWalletOverview"] });
+        return response.data;
+      } else {
+        throw new Error(response.message || "Withdrawal failed");
+      }
+    },
+    onError: (error: any) => {
+      const errorMessage = error.response?.data?.message || "Failed to process withdrawal";
+      toast.error(errorMessage);
+    },
+  });
+};

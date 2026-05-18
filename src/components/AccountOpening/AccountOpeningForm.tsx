@@ -1022,7 +1022,28 @@ const AccountOpeningForm: React.FC<Props> = ({
 
                   <Grid item xs={12} sx={{ mt: 2 }}>
                     <Divider sx={{ mb: 3 }} />
-                    <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
+                      {isUser && (form.accountType === 'PIGMY' || form.accountType === 'AGP005') && (
+                        <Button
+                          variant="outlined"
+                          size="large"
+                          onClick={() => navigate('/user/agent-wallet')}
+                          sx={{
+                            borderColor: theme.primary,
+                            color: theme.primary,
+                            px: 4,
+                            py: 1.5,
+                            fontWeight: 600,
+                            borderRadius: '12px',
+                            '&:hover': {
+                              borderColor: theme.secondary,
+                              bgcolor: `${theme.primary}08`,
+                            },
+                          }}
+                        >
+                          Agent Commission
+                        </Button>
+                      )}
                       <Button
                         variant="contained"
                         size="large"

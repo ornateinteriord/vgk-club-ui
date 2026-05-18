@@ -444,6 +444,29 @@ const UserAccountOpening = () => {
                       >
                         Full History
                       </Button>
+                      {accountType === 'PIGMY' && (
+                        <Button
+                          fullWidth
+                          variant="outlined"
+                          onClick={() => navigate('/user/agent-wallet')}
+                          sx={{
+                            borderRadius: '12px',
+                            py: 1.5,
+                            mt: 1,
+                            borderColor: '#f59e0b',
+                            color: '#f59e0b',
+                            fontWeight: 700,
+                            borderWidth: '2px',
+                            '&:hover': {
+                              borderColor: '#d97706',
+                              bgcolor: '#f59e0b0a',
+                              borderWidth: '2px',
+                            }
+                          }}
+                        >
+                          Agent Commission
+                        </Button>
+                      )}
                     </Paper>
                   </Grid>
                 </Grid>

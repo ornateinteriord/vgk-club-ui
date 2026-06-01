@@ -266,7 +266,7 @@ const AccountOpeningForm: React.FC<Props> = ({
   const createAccountMutation = isUser ? memberCreateAccount : adminCreateAccount;
 
   // Cashfree Order Mutation
-  const { mutate: createOrder, isPending: isOrderPending } = useCreatePaymentOrder();
+  // const { mutate: createOrder, isPending: isOrderPending } = useCreatePaymentOrder();
 
   console.log('AccountOpeningForm Debug:', { isUser, accountGroupId, defaultAccountType });
   console.log('Account Groups Data:', accountGroupsData);
@@ -1055,7 +1055,7 @@ const AccountOpeningForm: React.FC<Props> = ({
                         variant="contained"
                         size="large"
                         onClick={handleSubmit}
-                        disabled={!memberInfo || createAccountMutation.isPending || isOrderPending}
+                        disabled={!memberInfo || createAccountMutation.isPending}
                         sx={{
                           background: theme.gradient,
                           px: 4,
@@ -1069,7 +1069,7 @@ const AccountOpeningForm: React.FC<Props> = ({
                           },
                         }}
                       >
-                        {createAccountMutation.isPending || isOrderPending ? (
+                        {createAccountMutation.isPending ? (
                           <CircularProgress size={24} sx={{ color: 'white' }} />
                         ) : 'Create Account'}
                       </Button>

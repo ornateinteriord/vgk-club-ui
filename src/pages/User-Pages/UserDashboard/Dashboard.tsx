@@ -29,15 +29,6 @@ import SavingsIcon from '@mui/icons-material/Savings';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import StoreIcon from '@mui/icons-material/Store';
-import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
-import BuildIcon from '@mui/icons-material/Build';
-import TvIcon from '@mui/icons-material/Tv';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import NoteAddIcon from '@mui/icons-material/NoteAdd';
-import SpeedIcon from '@mui/icons-material/Speed';
 import LockIcon from '@mui/icons-material/Lock';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 
@@ -169,6 +160,7 @@ const UserDashboard = () => {
   ];
 
 
+  /*
   const quickAccessGroups = [
     {
       title: "ACCOUNT",
@@ -198,6 +190,7 @@ const UserDashboard = () => {
       ]
     }
   ];
+  */
 
   const Header = () => (
     <Box sx={{

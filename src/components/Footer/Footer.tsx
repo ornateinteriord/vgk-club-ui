@@ -38,13 +38,13 @@ const Footer = () => {
                                 lineHeight: 1.1
                             }}
                         >
-                            BLUSKY MICRO SERVICES FOUNDATION
+                            DEMO CO-OPERATIVE
                         </Typography>
-                        <Box sx={{ p: 2, borderRadius: "12px", bgcolor: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)", display: "inline-block", mb: 2 }}>
+                        {/* <Box sx={{ p: 2, borderRadius: "12px", bgcolor: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)", display: "inline-block", mb: 2 }}>
                             <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 700, letterSpacing: "1px", color: "#60a5fa" }}>
                                 CIN: U85300DC2022NPL407403 / ROC
                             </Typography>
-                        </Box>
+                        </Box> */}
                         <Typography variant="body1" sx={{ opacity: 0.6, fontSize: "0.95rem", lineHeight: 1.7, maxWidth: "400px" }}>
                             Leading the way in micro-financial services with innovative solutions and unwavering commitment to your growth.
                         </Typography>
@@ -63,8 +63,8 @@ const Footer = () => {
                                     <Box>
                                         <Typography variant="body2" sx={{ fontWeight: 700, mb: 0.5 }}>Head Office</Typography>
                                         <Typography variant="body2" sx={{ opacity: 0.7, lineHeight: 1.6 }}>
-                                            Ashachandra Trade Center,<br />
-                                            Udupi - 576101,<br />
+                                            123 Tech Park Avenue,<br />
+                                            Innovation Hub - 560001,<br />
                                             Karnataka, India
                                         </Typography>
                                     </Box>
@@ -79,11 +79,11 @@ const Footer = () => {
                                 <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
                                     <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                                         <Box sx={{ p: 1, borderRadius: "8px", bgcolor: "rgba(96, 165, 250, 0.1)" }}><Phone size={18} color="#60a5fa" /></Box>
-                                        <Typography variant="body2" sx={{ fontWeight: 600 }}>+91 7337679780</Typography>
+                                        <Typography variant="body2" sx={{ fontWeight: 600 }}>+91 98765 43210</Typography>
                                     </Box>
                                     <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                                         <Box sx={{ p: 1, borderRadius: "8px", bgcolor: "rgba(96, 165, 250, 0.1)" }}><Mail size={18} color="#60a5fa" /></Box>
-                                        <Typography variant="body2" sx={{ fontWeight: 600 }}>BMSFundation@gmail.com</Typography>
+                                        <Typography variant="body2" sx={{ fontWeight: 600 }}>contact@democoop.com</Typography>
                                     </Box>
                                 </Box>
                             </Grid>
@@ -132,7 +132,7 @@ const Footer = () => {
                     }}
                 >
                     <Typography variant="caption" sx={{ opacity: 0.4, fontWeight: 600 }}>
-                        © {currentYear} BLUSKY MICRO SERVICES FOUNDATION. Designed for excellence.
+                        © {currentYear} DEMO CO-OPERATIVE. Designed for excellence.
                     </Typography>
 
                     <Box sx={{ display: "flex", gap: { xs: 2, sm: 5 }, flexWrap: "wrap", justifyContent: "center" }}>

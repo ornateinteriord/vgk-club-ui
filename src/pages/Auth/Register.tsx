@@ -29,7 +29,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import WcIcon from "@mui/icons-material/Wc";
-import BMSLogo from "../../assets/bms_logo.png"; // Import the logo
+// import BMSLogo from "../../assets/bms_logo.png"; // Import the logo
 import { useGetSponserRef, useSignupMutation } from "../../api/Auth";
 import { LoadingComponent } from "../../App";
 
@@ -266,13 +266,13 @@ const Register = () => {
           }}
         >
           <CardContent sx={{ width: "100%", padding: { xs: '1rem', md: '2rem' } }}>
-            <Box sx={{ display: "flex", justifyContent: "center", mb: 1 }}>
+            {/* <Box sx={{ display: "flex", justifyContent: "center", mb: 1 }}>
               <img
                 src={BMSLogo}
                 alt="BMS Logo"
                 style={{ maxWidth: "220px", height: "auto", objectFit: "contain" }}
               />
-            </Box>
+            </Box> */}
             <Typography
               component="h1"
               variant="h5"

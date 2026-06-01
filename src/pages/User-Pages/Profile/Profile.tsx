@@ -142,7 +142,11 @@ const Profile: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    updateMember.mutate(formData);
+    const dataToSubmit = {
+      ...formData,
+      member_image: formData.profile_image
+    };
+    updateMember.mutate(dataToSubmit);
   };
 
   // ── Document image upload handlers ──────────────────────────

@@ -399,7 +399,7 @@ export const useUpdateMember = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (data: any) => {
-      return await put(`/user/member/${userId}`, data);
+      return await put(`/member/update-profile/${userId}`, data);
     },
     onSuccess: (response) => {
       if (response.success) {

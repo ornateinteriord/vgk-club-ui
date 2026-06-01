@@ -124,9 +124,11 @@ const AccountViewTable: React.FC<Props> = ({ accountType, title }) => {
     // Map account type to account_group_id
     useEffect(() => {
         if (accountGroupsData?.data) {
-            const matchingGroup = accountGroupsData.data.find(
-                (group: any) => group.account_group_name === accountType
-            );
+            const matchingGroup = accountGroupsData.data.find((group: any) => {
+                const name = (group.account_group_name || '').toUpperCase();
+                const type = accountType.toUpperCase();
+                return name === type || name.replace(' ACCOUNT', '') === type || name.includes(type) || group.account_type === type;
+            });
             if (matchingGroup) {
                 setAccountGroupId(matchingGroup.account_group_id);
             }

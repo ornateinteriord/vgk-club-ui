@@ -274,18 +274,20 @@ const AccountOpeningForm: React.FC<Props> = ({
 
   // Map account type name to account_group_id
   useEffect(() => {
+    console.log("DEBUG AccountOpeningForm - defaultAccountType:", defaultAccountType);
+    console.log("DEBUG AccountOpeningForm - accountGroupsData:", accountGroupsData);
+
     if (accountGroupsData?.data) {
       const search = defaultAccountType?.toUpperCase() || '';
       const matchingGroup = accountGroupsData.data.find((group: any) => {
-        const name = group.account_group_name?.toUpperCase() || '';
-        const id = group.account_group_id?.toUpperCase() || '';
+        const name = (group.account_group_name || '').toUpperCase();
+        const abbr = (group.account_group_abbreviation || '').toUpperCase();
+        const id = (group.account_group_id || '').toUpperCase();
 
-        // 1. Try exact match first (Highest Priority)
-        if (name === search || id === search) return true;
+        if (name === search || id === search || abbr === search) return true;
 
-        // 2. Try specific keyword matches for certain types
         if (search === 'SB') {
-          return name === 'SAVING' || name === 'SAVINGS' || name === 'SAVINGS ACCOUNT' || name === 'SAVINGS BANK';
+          return name.includes('SB') || name === 'SAVING' || name === 'SAVINGS' || name === 'SAVINGS ACCOUNT' || name === 'SAVINGS BANK';
         }
 
         return name.startsWith(search) ||
@@ -294,7 +296,7 @@ const AccountOpeningForm: React.FC<Props> = ({
           (search === 'CA' && name.includes('CURRENT')) ||
           (search === 'CUR' && name.includes('CURRENT')) ||
           (search === 'MIS' && name.includes('MONTHLY')) ||
-          (search === 'PIGMY' && (name.includes('DAILY') || name === 'PIGMI'));
+          (search === 'PIGMY' && (name.includes('PIGMY') || name.includes('DAILY') || name === 'PIGMI'));
       });
 
       if (matchingGroup) {
@@ -458,6 +460,8 @@ const AccountOpeningForm: React.FC<Props> = ({
       return;
     }
 
+    /*
+    // Commented out Cashfree payment logic as per request - accounts can be created directly without payment
     if (isUser) {
       // Members must pay via Cashfree
       const orderData = {
@@ -500,6 +504,7 @@ const AccountOpeningForm: React.FC<Props> = ({
       });
       return;
     }
+    */
 
     // Admin-side account creation (Direct)
     try {
@@ -1023,6 +1028,7 @@ const AccountOpeningForm: React.FC<Props> = ({
                   <Grid item xs={12} sx={{ mt: 2 }}>
                     <Divider sx={{ mb: 3 }} />
                     <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
+                      {/* 
                       {isUser && (form.accountType === 'PIGMY' || form.accountType === 'AGP005') && (
                         <Button
                           variant="outlined"
@@ -1043,7 +1049,8 @@ const AccountOpeningForm: React.FC<Props> = ({
                         >
                           Agent Commission
                         </Button>
-                      )}
+                      )} 
+                      */}
                       <Button
                         variant="contained"
                         size="large"
@@ -1064,7 +1071,7 @@ const AccountOpeningForm: React.FC<Props> = ({
                       >
                         {createAccountMutation.isPending || isOrderPending ? (
                           <CircularProgress size={24} sx={{ color: 'white' }} />
-                        ) : isUser ? 'Pay & Create Account' : 'Create Account'}
+                        ) : 'Create Account'}
                       </Button>
                     </Box>
                   </Grid>

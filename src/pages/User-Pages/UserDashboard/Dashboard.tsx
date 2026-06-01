@@ -140,6 +140,10 @@ const UserDashboard = () => {
   };
 
   const servicesGrid = [
+    { label: "Profile", icon: <AccountCircleIcon />, route: "/user/account/profile", color: "#3b82f6" },
+    { label: "KYC", icon: <VerifiedUserIcon />, route: "/user/account/kyc", color: "#10b981" },
+    { label: "Password", icon: <LockIcon />, route: "/user/account/change-password", color: "#f59e0b" },
+    ...(isPackageActive ? [{ label: "Add Deposit", icon: <InventoryIcon />, route: "/user/addon-packages?view=addon", color: "#3b82f6" }] : []),
     { label: "SB Account", icon: <AccountBalanceWalletIcon />, color: "#3b82f6", type: "sb" },
     { label: "RD Account", icon: <AutorenewIcon />, color: "#10b981", type: "rd" },
     { label: "FD Account", icon: <NoteAddIcon />, color: "#f59e0b", type: "fd" },
@@ -150,6 +154,7 @@ const UserDashboard = () => {
     { label: "Group LOAN", icon: <GroupsIcon />, color: "#3b82f6" },
     { label: "RD LOAN", icon: <CurrencyRupeeIcon />, color: "#ef4444" },
     { label: "OD LOAN", icon: <CurrencyRupeeIcon />, color: "#6366f1" },
+    /* 
     { label: "BMS PROTECT", icon: <HealthAndSafetyIcon />, color: "#10b981" },
     { label: "E Shopy Product", icon: <ShoppingCartIcon />, color: "#f59e0b" },
     { label: "Hurb Product", icon: <StoreIcon />, color: "#3b82f6" },
@@ -160,7 +165,9 @@ const UserDashboard = () => {
     { label: "Pigmy Loan", icon: <CurrencyRupeeIcon />, color: "#ef4444" },
     { label: "HOPETAXI", icon: <LocalTaxiIcon />, color: "#f59e0b" },
     { label: "SERVICE", icon: <BuildIcon />, color: "#3b82f6" },
+    */
   ];
+
 
   const quickAccessGroups = [
     {
@@ -289,6 +296,7 @@ const UserDashboard = () => {
         )}
 
         {/* OVER DRAFT — Toggle for upgraded users, Redirect for others — Hidden if ROI Inactive */}
+        {/* Commented out OVER DRAFT button as per request
         {isUserActive && isPackageActive && (
           <Button
             variant="contained"
@@ -317,6 +325,7 @@ const UserDashboard = () => {
             {(isPackageActive && showQuickAccess) ? 'BACK' : 'OVER DRAFT'}
           </Button>
         )}
+        */}
 
       </Box>
     </Box>
@@ -379,6 +388,8 @@ const UserDashboard = () => {
             <img src="/cb.png" alt="BMS Banner" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </Box>
 
+
+
           {/* Quick Services Grid */}
           <Box sx={{ mb: 6 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: 2, mb: 3 }}>
@@ -414,7 +425,7 @@ const UserDashboard = () => {
               {servicesGrid.map((item, i) => (
                 <Box 
                   key={i} 
-                  onClick={() => handleAccountClick(item)}
+                  onClick={() => item.route ? navigate(item.route) : handleAccountClick(item)}
                   sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1.5, cursor: 'pointer' }}
                 >
                   <Paper elevation={0} sx={{
@@ -467,6 +478,7 @@ const UserDashboard = () => {
           top: { md: '80px' }
         }}>
           {/* Mobile Only: Quick Access Header */}
+          {/* Commented out over draft page content as per request
           <Typography variant="h6" sx={{ fontWeight: 900, color: '#0a2558', mb: 1, display: { xs: 'block', md: 'none' } }}>
             OVER DRAFT
           </Typography>
@@ -505,7 +517,7 @@ const UserDashboard = () => {
               </Box>
             ))}
 
-            {/* Team Performance - Mobile Only inside Quick Access */}
+            {/* Team Performance - Mobile Only inside Quick Access * /}
             <Box sx={{ mt: 2, display: { xs: 'block', md: 'none' } }}>
               <Typography variant="subtitle2" sx={{ fontWeight: 900, color: '#0a2558', mb: 2 }}>TEAM PERFORMANCE</Typography>
               <Paper elevation={0} sx={{ p: 3, borderRadius: '20px', bgcolor: 'white', border: '1px solid #e2e8f0' }}>
@@ -522,6 +534,7 @@ const UserDashboard = () => {
               </Paper>
             </Box>
           </Box>
+          */}
 
           <Box sx={{ width: { xs: '100%', xl: '420px' }, display: 'flex', flexDirection: 'column', gap: 4 }}>
             <Paper elevation={0} sx={{

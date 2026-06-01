@@ -115,7 +115,11 @@ const UserAccountOpening = () => {
     }
   }, [searchParams, paymentProcessed, setSearchParams, refetchAccounts]);
 
-  const accountGroup = myAccountsData?.data?.accountTypes?.find((acc: any) => acc.account_group_name === accountType);
+  const accountGroup = myAccountsData?.data?.accountTypes?.find((acc: any) => {
+    const name = (acc.account_group_name || '').toUpperCase();
+    const type = accountType.toUpperCase();
+    return name === type || name.replace(' ACCOUNT', '') === type || name.includes(type) || acc.account_type === type;
+  });
   const existingAccount = accountGroup?.accounts?.[0];
 
   useEffect(() => {

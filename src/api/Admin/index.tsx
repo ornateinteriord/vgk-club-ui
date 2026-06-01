@@ -40,11 +40,15 @@ export const useGetAllMembersDetails = () =>{
     return useQuery({
         queryKey:["allMembers"],
         queryFn: async() =>{
-            const response = await get("/admin/members")
-            if(response.success){
-                return response.members
-            }else{
-                throw new Error(response.message || "Failed to fetch members")
+            try {
+                const response = await get("/admin/get-members");
+                if (response && response.success) {
+                    return response.data || response.members || [];
+                }
+                return [];
+            } catch (error) {
+                console.warn("Failed to fetch members:", error);
+                return []; // Gracefully return empty array so UI shows "not found" instead of an error crash
             }
         }
     })

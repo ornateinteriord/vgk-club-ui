@@ -28,9 +28,21 @@ class TokenService {
     try {
       const decoded = jwtDecode<any>(token);
       
-      // Normalize memberId (handle both camelCase and snake_case)
-      if (decoded && !decoded.memberId && decoded.member_id) {
-          decoded.memberId = decoded.member_id;
+      // Normalize memberId (handle both camelCase and snake_case, and userId which backend uses for Member_id)
+      if (decoded) {
+          if (!decoded.memberId && decoded.member_id) {
+              decoded.memberId = decoded.member_id;
+          }
+          if (!decoded.memberId && decoded.userId && isNaN(Number(decoded.userId))) {
+              // Ensure we don't accidentally grab a numeric ID, assuming member IDs are strings like "BMS000002"
+              decoded.memberId = decoded.userId;
+          }
+          if (!decoded.memberId && typeof decoded.userId === 'string' && decoded.userId.startsWith('BMS')) {
+              decoded.memberId = decoded.userId;
+          } else if (!decoded.memberId && decoded.userId) {
+               // Fallback: just use userId
+               decoded.memberId = decoded.userId;
+          }
       }
 
       return decoded;

@@ -67,6 +67,7 @@ const Profile: React.FC = () => {
 
   // Update state when user data is fetched
   useEffect(() => {
+    console.log("[FRONTEND DEBUG] Profile.tsx useEffect triggered, user:", user);
     if (user) {
       setFormData({
         Name: user.Name ?? "",

@@ -8,7 +8,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     
 
     const getUser = async (userId: string) => {
-       return await get(`/user/member/${userId}`)
+       return await get(`/member/get-member/${userId}`)
     };
   
 

@@ -369,7 +369,9 @@ export const useGetMemberDetails = (userId: string | null) => {
   return useQuery({
     queryKey: ["memberDetails", userId],
     queryFn: async () => {
-      const response = await getUser(userId);
+      console.log(`[FRONTEND DEBUG] useGetMemberDetails called with userId:`, userId);
+      const response = await getUser(userId!);
+      console.log(`[FRONTEND DEBUG] useGetMemberDetails API response:`, response);
       if (response.success) {
         setUser(response.data);
         return response.data;
@@ -417,10 +419,12 @@ export const useUpdateMember = () => {
 };
 
 export const useGetTransactionDetails = (status = "all", type = "all") => {
+  const memberId = TokenService.getMemberId() || TokenService.getUserId();
   return useQuery({
-    queryKey: ["transactionsWithConfig", status, type],
+    queryKey: ["transactionsWithConfig", status, type, memberId],
     queryFn: async () => {
-      const response = await get(`/user/transactions?status=${status}&type=${type}`);
+      if (!memberId) throw new Error("No member ID available");
+      const response = await get(`/user/get-user-transactions/${memberId}?status=${status}&type=${type}`);
 
       if (response.success) {
         return response;
@@ -428,6 +432,7 @@ export const useGetTransactionDetails = (status = "all", type = "all") => {
         throw new Error(response.message || "Failed to fetch transactions");
       }
     },
+    enabled: !!memberId,
   });
 };
 

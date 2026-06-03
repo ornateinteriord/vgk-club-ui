@@ -36,6 +36,10 @@ const About = () => {
                 </Typography>
             </Box>
 
+            <Box sx={{ width: '100%', height: { xs: '200px', md: '400px' }, mb: 6, borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="About Us Team" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </Box>
+
             <Paper elevation={3} sx={{ p: 4, mb: 4, background: "linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)" }}>
                 <Typography variant="h5" sx={{ fontWeight: "bold", mb: 3, color: "#6b21a8" }}>
                     Who We Are

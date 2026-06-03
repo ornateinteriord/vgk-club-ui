@@ -1,4 +1,4 @@
-import { useState, forwardRef } from 'react';
+import { useState, forwardRef, useEffect } from 'react';
 import { Box, Typography, Button, Container, Grid, Card, CardContent, AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemText, useMediaQuery, useTheme, Dialog, Slide } from "@mui/material";
 import { TransitionProps } from '@mui/material/transitions';
 import { Link, useNavigate } from "react-router-dom";
@@ -24,6 +24,22 @@ const Home = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [mobileOpen, setMobileOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slideImages = [
+    "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slideImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -108,11 +124,39 @@ const Home = () => {
       {/* Hero Section */}
       <Box sx={{ paddingTop: { xs: '56px', sm: '64px' }, flex: 1, display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ 
+          width: '100%',
+          height: '80vh', 
+          overflow: 'hidden', 
+          position: 'relative',
+        }}>
+          <Box sx={{
+            display: 'flex',
+            width: `${slideImages.length * 100}%`,
+            height: '100%',
+            transform: `translateX(-${(currentSlide * 100) / slideImages.length}%)`,
+            transition: 'transform 0.8s ease-in-out'
+          }}>
+            {slideImages.map((img, index) => (
+              <Box
+                key={index}
+                sx={{
+                  width: `${100 / slideImages.length}%`,
+                  height: '100%',
+                  backgroundImage: `url(${img})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              />
+            ))}
+          </Box>
+        </Box>
+
+        {/* Text Section (Below Slider) */}
+        <Box sx={{ 
           background: 'linear-gradient(135deg, #1a237e 0%, #0a2558 100%)', 
           color: 'white', 
-          padding: { xs: '4rem 1rem', md: '8rem 4rem' },
+          padding: { xs: '3rem 1rem', md: '4rem 4rem' },
           textAlign: 'center',
-          borderRadius: { xs: '0 0 2rem 2rem', md: '0 0 4rem 4rem' },
           boxShadow: '0 10px 30px rgba(26, 35, 126, 0.2)'
         }}>
           <Container maxWidth="md">

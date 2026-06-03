@@ -106,7 +106,7 @@ const Home = () => {
       </Drawer>
 
       {/* Hero Section */}
-      <Box sx={{ paddingTop: '80px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ paddingTop: { xs: '56px', sm: '64px' }, flex: 1, display: 'flex', flexDirection: 'column' }}>
         <Box sx={{ 
           background: 'linear-gradient(135deg, #1a237e 0%, #0a2558 100%)', 
           color: 'white', 

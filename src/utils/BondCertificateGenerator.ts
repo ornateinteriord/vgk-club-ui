@@ -84,10 +84,10 @@ const buildStamp = (): string => {
   <circle cx="80" cy="80" r="48" fill="none" stroke="#1a3a7a" stroke-width="1.5"/>
   
   <text font-size="8.5" fill="#1a3a7a" font-family="Arial Black" font-weight="900" letter-spacing="0.5">
-    <textPath href="#ts" startOffset="50%" text-anchor="middle">BLUSKY MICRO SERVICES FOUNDATION</textPath>
+    <textPath href="#ts" startOffset="50%" text-anchor="middle">DUMMY COMPANY FOUNDATION</textPath>
   </text>
   <text font-size="8.5" fill="#1a3a7a" font-family="Arial Black" font-weight="900" letter-spacing="1">
-    <textPath href="#bs" startOffset="50%" text-anchor="middle">HOSPET - 583 201</textPath>
+    <textPath href="#bs" startOffset="50%" text-anchor="middle">DUMMY CITY - 123 456</textPath>
   </text>
   
   <text x="25" y="83" text-anchor="middle" fill="#1a3a7a" font-size="12">★</text>
@@ -275,14 +275,14 @@ th { background: #e0e0e0; font-weight: bold; }
           <img src="${logoDataUrl}" alt="Logo"/>
         </div>
         <div class="hdr-main">
-          <div class="hdr-t1">BMS FOUNDATION</div>
-          <div class="hdr-t1-sub">(CIN = U64990KA2025PTC212899)</div>
-          <div class="hdr-t2">BMS FINANCE AND FOUNDATION</div>
-          <div class="hdr-t2-sub">(BLUSKY MICRO FOUNDATION)</div>
-          <div class="hdr-cin">(CIN = U85300DL2022NPL407403/ROC)</div>
+          <div class="hdr-t1">DUMMY FOUNDATION</div>
+          <div class="hdr-t1-sub">(CIN = U00000AA0000XXX000000)</div>
+          <div class="hdr-t2">DUMMY FINANCE AND FOUNDATION</div>
+          <div class="hdr-t2-sub">(DUMMY MICRO FOUNDATION)</div>
+          <div class="hdr-cin">(CIN = U00000AA0000XXX000000/ROC)</div>
           <div class="hdr-addr">
-            Tel: +91 8394232300 | Email: bmskspost@gmail.com<br/>
-            Branch Address: ASHA CHANDRA TRADE CENTER OPPOSITE COURT ROAD UDUPI Karnataka - 576101
+            Tel: +1 234 567 8900 | Email: dummy@dummy.com<br/>
+            Branch Address: 123 DUMMY STREET, DUMMY CITY, DUMMY STATE - 123456
           </div>
         </div>
         <div class="hdr-photo">
@@ -375,7 +375,7 @@ th { background: #e0e0e0; font-weight: bold; }
         <div class="sig-box">Authorized Signatory</div>
       </div>
 
-      <div class="powered">Powered by BMS Foundation</div>
+      <div class="powered">Powered by Dummy Foundation</div>
     </div>
   </div>
 </div>

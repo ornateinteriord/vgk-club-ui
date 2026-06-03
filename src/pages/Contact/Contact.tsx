@@ -26,13 +26,13 @@ const Contact = () => {
     };
 
     return (
-        <Container maxWidth="lg" sx={{ py: 8 }}>
+        <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
             <Button
                 startIcon={<ArrowLeft size={20} />}
                 onClick={() => navigate("/")}
                 sx={{
-                    mt: 3,
-                    mb: 3,
+                    mt: { xs: 1, md: 3 },
+                    mb: { xs: 2, md: 3 },
                     color: "#6b21a8",
                     "&:hover": {
                         backgroundColor: "rgba(107, 33, 168, 0.1)",
@@ -75,8 +75,8 @@ const Contact = () => {
                                         Address
                                     </Typography>
                                     <Typography variant="body2">
-                                        Shop No. G6, Asha Chandra Trade Centre,<br />
-                                        Udupi, Karnataka
+                                        123 Dummy Street, Dummy City,<br />
+                                        Dummy State 12345
                                     </Typography>
                                 </Box>
                             </Box>
@@ -88,8 +88,8 @@ const Contact = () => {
                                         Phone
                                     </Typography>
                                     <Typography variant="body2">
-                                        +91 9004478100<br />
-                                        0820-7966887
+                                        +1 234 567 8900<br />
+                                        +1 987 654 3210
                                     </Typography>
                                 </Box>
                             </Box>
@@ -101,7 +101,7 @@ const Contact = () => {
                                         Email
                                     </Typography>
                                     <Typography variant="body2">
-                                        support@bmsfoundation.biz
+                                        support@dummy.com
                                     </Typography>
                                 </Box>
                             </Box>

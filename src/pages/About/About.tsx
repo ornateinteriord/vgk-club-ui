@@ -6,13 +6,13 @@ const About = () => {
     const navigate = useNavigate();
 
     return (
-        <Container maxWidth="lg" sx={{ py: 8 }}>
+        <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
             <Button
                 startIcon={<ArrowLeft size={20} />}
                 onClick={() => navigate("/")}
                 sx={{
-                    mt: 3,
-                    mb: 3,
+                    mt: { xs: 1, md: 3 },
+                    mb: { xs: 2, md: 3 },
                     color: "#6b21a8",
                     "&:hover": {
                         backgroundColor: "rgba(107, 33, 168, 0.1)",
@@ -34,9 +34,6 @@ const About = () => {
                 >
                     About Us
                 </Typography>
-                <Typography variant="h6" color="text.secondary">
-                   BMS Foundation Ltd.
-                </Typography>
             </Box>
 
             <Paper elevation={3} sx={{ p: 4, mb: 4, background: "linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)" }}>
@@ -44,15 +41,10 @@ const About = () => {
                     Who We Are
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
-                    BMS Foundation ltd (BMSF) is a premier cooperative society dedicated to
-                    providing comprehensive financial services to our valued members. Established with the vision of
-                    financial inclusion and empowerment, we have been serving our community with integrity, transparency,
-                    and excellence.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
-                    Our society operates under the principles of cooperation, mutual assistance, and financial responsibility.
-                    We are registered under the Cooperative Societies Act and are committed to maintaining the highest
-                    standards of financial governance and member service.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </Typography>
             </Paper>
 
@@ -65,8 +57,7 @@ const About = () => {
                         </Typography>
                     </Box>
                     <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
-                        To provide accessible, reliable, and innovative financial services that empower our members
-                        to achieve their financial goals while fostering a culture of savings, investment, and mutual growth.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </Typography>
                 </Paper>
 
@@ -78,8 +69,7 @@ const About = () => {
                         </Typography>
                     </Box>
                     <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
-                        To be the most trusted and preferred cooperative society, recognized for financial excellence,
-                        member satisfaction, and contribution to the economic development of our community.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
                     </Typography>
                 </Paper>
             </Box>
@@ -93,10 +83,10 @@ const About = () => {
                 </Box>
                 <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 2 }}>
                     {[
-                        { title: "Integrity", description: "We conduct our business with honesty and ethical principles" },
-                        { title: "Transparency", description: "We maintain open and clear communication with all stakeholders" },
-                        { title: "Member-Centric", description: "Our members' interests are at the heart of everything we do" },
-                        { title: "Innovation", description: "We continuously improve our services through technology and best practices" },
+                        { title: "Lorem Ipsum", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+                        { title: "Dolor Sit Amet", description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+                        { title: "Consectetur", description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco." },
+                        { title: "Adipiscing", description: "Duis aute irure dolor in reprehenderit in voluptate velit." },
                     ].map((value, index) => (
                         <Box key={index}>
                             <Typography variant="subtitle1" sx={{ fontWeight: "bold", mb: 0.5 }}>
@@ -118,13 +108,13 @@ const About = () => {
                     </Typography>
                 </Box>
                 <Typography variant="body1" paragraph>
-                    <strong>Registration Number:</strong> DRP | 6112 | 21-22
+                    <strong>Registration Number:</strong> 1234567890
                 </Typography>
                 <Typography variant="body1" paragraph>
-                    <strong>Address:</strong> Shop No. G6, Asha Chandra Trade Centre, Udupi, Karnataka
+                    <strong>Address:</strong> 123 Dummy Street, Dummy City, Dummy State
                 </Typography>
                 <Typography variant="body1">
-                    <strong>Contact:</strong> +91 9004478100, 0820-7966887 | support@bmsfoundation.biz
+                    <strong>Contact:</strong> +1 234 567 8900 | support@dummy.com
                 </Typography>
             </Paper>
         </Container>

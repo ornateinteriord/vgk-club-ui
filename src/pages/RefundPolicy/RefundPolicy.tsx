@@ -6,13 +6,13 @@ const RefundPolicy = () => {
     const navigate = useNavigate();
 
     return (
-        <Container maxWidth="lg" sx={{ py: 8 }}>
+        <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
             <Button
                 startIcon={<ArrowLeft size={20} />}
                 onClick={() => navigate("/")}
                 sx={{
-                    mt: 3,
-                    mb: 3,
+                    mt: { xs: 1, md: 3 },
+                    mb: { xs: 2, md: 3 },
                     color: "#6b21a8",
                     "&:hover": {
                         backgroundColor: "rgba(107, 33, 168, 0.1)",
@@ -47,9 +47,7 @@ const RefundPolicy = () => {
                     </Typography>
                 </Box>
                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
-                    At BMS Foundation ltd (BMSF), we strive to provide excellent financial services
-                    to our members. This Refund Policy outlines the circumstances under which refunds may be requested and
-                    processed for various fees and charges.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
                     Please read this policy carefully to understand our refund procedures and your rights as a member.
@@ -136,7 +134,7 @@ const RefundPolicy = () => {
                         Step 1: Contact Us
                     </Typography>
                     <Typography variant="body2" paragraph sx={{ lineHeight: 1.8, pl: 2 }}>
-                        Reach out to our support team via email at support@bmsfoundation.biz or call us at +91 9004478100
+                        Reach out to our support team via email at support@dummy.com or call us at +1 234 567 8900
                         within 7 days of the transaction.
                     </Typography>
 
@@ -180,10 +178,10 @@ const RefundPolicy = () => {
                         in your account after processing.
                     </li>
                     <li>
-                        MSI reserves the right to reject refund requests that do not meet the criteria outlined in this policy.
+                        We reserve the right to reject refund requests that do not meet the criteria outlined in this policy.
                     </li>
                     <li>
-                        In case of disputes, MSI's decision shall be final and binding.
+                        In case of disputes, our decision shall be final and binding.
                     </li>
                     <li>
                         This policy is subject to change. Members will be notified of any significant changes.
@@ -199,9 +197,9 @@ const RefundPolicy = () => {
                     For refund requests or questions about this policy, please contact:
                 </Typography>
                 <Typography variant="body1">
-                    <strong>Email:</strong> support@bmsfoundation.biz<br />
-                    <strong>Phone:</strong> +91 9004478100, 0820-7966887<br />
-                    <strong>Address:</strong> Shop No. G6, Asha Chandra Trade Centre, Udupi, Karnataka<br />
+                    <strong>Email:</strong> support@dummy.com<br />
+                    <strong>Phone:</strong> +1 234 567 8900<br />
+                    <strong>Address:</strong> 123 Dummy Street, Dummy City, Dummy State<br />
                     <strong>Office Hours:</strong> Monday - Saturday, 10:00 AM - 5:00 PM
                 </Typography>
             </Paper>

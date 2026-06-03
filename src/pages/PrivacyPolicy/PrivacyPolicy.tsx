@@ -6,13 +6,13 @@ const PrivacyPolicy = () => {
     const navigate = useNavigate();
 
     return (
-        <Container maxWidth="lg" sx={{ py: 8 }}>
+        <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
             <Button
                 startIcon={<ArrowLeft size={20} />}
                 onClick={() => navigate("/")}
                 sx={{
-                    mt: 3,
-                    mb: 3,
+                    mt: { xs: 1, md: 3 },
+                    mb: { xs: 2, md: 3 },
                     color: "#6b21a8",
                     "&:hover": {
                         backgroundColor: "rgba(107, 33, 168, 0.1)",
@@ -47,9 +47,7 @@ const PrivacyPolicy = () => {
                     </Typography>
                 </Box>
                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
-                    BMS Foundation ltd (\"BMSF\", \"we\", \"us\", or \"our\") is committed to protecting
-                    your privacy and personal information. This Privacy Policy explains how we collect, use, disclose,
-                    and safeguard your information when you use our services and platform.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </Typography>
             </Paper>
 
@@ -172,9 +170,9 @@ const PrivacyPolicy = () => {
                     please contact us at:
                 </Typography>
                 <Typography variant="body1">
-                    <strong>Email:</strong> support@bmsfoundation.biz<br />
-                    <strong>Phone:</strong> +91 9004478100, 0820-7966887<br />
-                    <strong>Address:</strong> Shop No. G6, Asha Chandra Trade Centre, Udupi, Karnataka
+                    <strong>Email:</strong> support@dummy.com<br />
+                    <strong>Phone:</strong> +1 234 567 8900<br />
+                    <strong>Address:</strong> 123 Dummy Street, Dummy City, Dummy State
                 </Typography>
             </Paper>
         </Container>

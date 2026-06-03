@@ -6,13 +6,13 @@ const Terms = () => {
     const navigate = useNavigate();
 
     return (
-        <Container maxWidth="lg" sx={{ py: 8 }}>
+        <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
             <Button
                 startIcon={<ArrowLeft size={20} />}
                 onClick={() => navigate("/")}
                 sx={{
-                    mt: 3,
-                    mb: 3,
+                    mt: { xs: 1, md: 3 },
+                    mb: { xs: 2, md: 3 },
                     color: "#6b21a8",
                     "&:hover": {
                         backgroundColor: "rgba(107, 33, 168, 0.1)",
@@ -47,9 +47,7 @@ const Terms = () => {
                     </Typography>
                 </Box>
                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
-                    Welcome to BMS Foundation ltd (\"BMSF\", \"we\", \"us\", or \"our\"). These Terms
-                    and Conditions govern your use of our services and platform. By accessing or using our services,
-                    you agree to be bound by these terms.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
                     Please read these terms carefully before using our services. If you do not agree with any part of
@@ -65,7 +63,7 @@ const Terms = () => {
                     </Typography>
                 </Box>
                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
-                    To become a member of BMSF and use our services, you must:
+                    To become a member of our platform and use our services, you must:
                 </Typography>
                 <Box component="ul" sx={{ pl: 4, mb: 2 }}>
                     <li>Be at least 18 years of age</li>
@@ -103,7 +101,7 @@ const Terms = () => {
                     Financial Services
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
-                    BMSF offers various financial services including:
+                    We offer various financial services including:
                 </Typography>
                 <Box component="ul" sx={{ pl: 4 }}>
                     <li>Savings Accounts with competitive interest rates</li>
@@ -166,7 +164,7 @@ const Terms = () => {
                     Limitation of Liability
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
-                    BMSF shall not be liable for any indirect, incidental, special, or consequential damages arising out
+                    We shall not be liable for any indirect, incidental, special, or consequential damages arising out
                     of or related to your use of our services. We do not guarantee uninterrupted or error-free service.
                 </Typography>
             </Paper>
@@ -180,7 +178,7 @@ const Terms = () => {
                     with or without notice, for any violation of these terms or for any other reason we deem appropriate.
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
-                    Upon termination, you remain liable for all outstanding obligations and amounts due to BMSF.
+                    Upon termination, you remain liable for all outstanding obligations and amounts due to us.
                 </Typography>
             </Paper>
 
@@ -191,7 +189,7 @@ const Terms = () => {
                 <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
                     These Terms and Conditions shall be governed by and construed in accordance with the laws of India.
                     Any disputes arising out of or related to these terms shall be subject to the exclusive jurisdiction
-                    of the courts in Udupi, Karnataka.
+                    of the courts in Dummy City.
                 </Typography>
             </Paper>
 
@@ -203,9 +201,9 @@ const Terms = () => {
                     For questions regarding these Terms and Conditions, please contact us:
                 </Typography>
                 <Typography variant="body1">
-                    <strong>Email:</strong> support@bmsfoundation.biz<br />
-                    <strong>Phone:</strong> +91 9004478100, 0820-7966887<br />
-                    <strong>Address:</strong> Shop No. G6, Asha Chandra Trade Centre, Udupi, Karnataka
+                    <strong>Email:</strong> support@dummy.com<br />
+                    <strong>Phone:</strong> +1 234 567 8900<br />
+                    <strong>Address:</strong> 123 Dummy Street, Dummy City, Dummy State
                 </Typography>
             </Paper>
         </Container>

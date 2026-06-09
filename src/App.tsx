@@ -239,7 +239,7 @@ const ShouldHideNavbar = () => {
 
 const ShouldShowFooter = () => {
   const location = useLocation();
-  const noFooterPaths: string[] = [];
+  const noFooterPaths: string[] = ["/"];
   return !noFooterPaths.includes(location.pathname);
 };
 

@@ -1,0 +1,24 @@
+/* ─── Video Banner ─────────────────────────────────────────────────────────── */
+
+.vgk-video-banner {
+  width: 100%;
+  background: #fff;
+  /* Add some margin or padding if needed to match the real site */
+}
+
+.vgk-video-container {
+  width: 100%;
+  /* Original site uses a specific height ~305px on desktop, but aspect ratio or max-height is safer */
+  max-height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vgk-promo-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

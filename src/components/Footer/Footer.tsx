@@ -1,174 +1,77 @@
-import { Box, Container, Typography, Grid, IconButton, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import "./Footer.css";
+import logo from "../../assets/logo.png";
 
-const Footer = () => {
-    const currentYear = new Date().getFullYear();
+export default function Footer() {
+  return (
+    <footer className="vgk-footer">
+      <div className="vgk-footer-main">
+        {/* Column 1: Brand */}
+        <div className="vgk-footer-col vgk-footer-brand">
+          <img src={logo} alt="VGK HUB Logo" className="vgk-footer-logo" />
+          <p className="vgk-footer-desc">
+            VGK HUB, a part of the Vishwa Gurukulam Foundation, is dedicated to promoting health and well-being for citizens across India through a diverse range of products and services.
+          </p>
+          <Link to="/about" className="vgk-footer-link-bold">Learn More</Link>
+        </div>
 
-    return (
-        <Box
-            component="footer"
-            sx={{
-                background: "linear-gradient(135deg, #0a2558 0%, #0f172a 50%, #020617 100%)",
-                color: "white",
-                pt: { xs: 4, md: 6 },
-                pb: { xs: 3, md: 4 },
-                mt: 0,
-                borderTop: "1px solid rgba(255,255,255,0.08)",
-                position: "relative",
-                overflow: "hidden"
-            }}
-        >
-            {/* Subtle background glow effect */}
-            <Box sx={{ position: "absolute", top: -100, right: -100, width: 300, height: 300, background: "radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
+        {/* Column 2: Information */}
+        <div className="vgk-footer-col">
+          <h3 className="vgk-footer-title">Information</h3>
+          <ul className="vgk-footer-links">
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+          </ul>
+        </div>
 
-            <Container maxWidth="xl">
-                <Grid container spacing={3}>
-                    {/* Branding Section */}
-                    <Grid item xs={12} lg={4}>
-                        <Typography
-                            variant="h4"
-                            sx={{
-                                fontWeight: 900,
-                                mb: 3,
-                                background: "linear-gradient(to right, #fff, #94a3b8)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                letterSpacing: "-1px",
-                                lineHeight: 1.1
-                            }}
-                        >
-                            DEMO CO-OPERATIVE
-                        </Typography>
-                        {/* <Box sx={{ p: 2, borderRadius: "12px", bgcolor: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)", display: "inline-block", mb: 2 }}>
-                            <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 700, letterSpacing: "1px", color: "#60a5fa" }}>
-                                CIN: U85300DC2022NPL407403 / ROC
-                            </Typography>
-                        </Box> */}
-                        <Typography variant="body1" sx={{ opacity: 0.6, fontSize: "0.95rem", lineHeight: 1.7, maxWidth: "400px" }}>
-                            Leading the way in micro-financial services with innovative solutions and unwavering commitment to your growth.
-                        </Typography>
-                    </Grid>
+        {/* Column 3: Shop */}
+        <div className="vgk-footer-col">
+          <h3 className="vgk-footer-title">Shop</h3>
+          <ul className="vgk-footer-links">
+            <li><Link to="/#recommended">Recommended</Link></li>
+            <li><Link to="/shop">More Items</Link></li>
+            <li><Link to="/collections">Other Collections</Link></li>
+            <li><Link to="/collections/organic">Organic Food Items</Link></li>
+            <li><Link to="/collections/ayurvedic">Ayurvedic Food Supplements</Link></li>
+          </ul>
+        </div>
 
-                    {/* Links & Info Grouped */}
-                    <Grid item xs={12} lg={8}>
-                        <Grid container spacing={3}>
-                            {/* Location Section */}
-                            <Grid item xs={12} sm={4}>
-                                <Typography variant="overline" sx={{ fontWeight: 900, mb: 3, display: "block", color: "#3b82f6", letterSpacing: "2px" }}>
-                                    Visit Us
-                                </Typography>
-                                <Box sx={{ display: "flex", gap: 2 }}>
-                                    <MapPin size={24} color="#60a5fa" style={{ flexShrink: 0 }} />
-                                    <Box>
-                                        <Typography variant="body2" sx={{ fontWeight: 700, mb: 0.5 }}>Head Office</Typography>
-                                        <Typography variant="body2" sx={{ opacity: 0.7, lineHeight: 1.6 }}>
-                                            123 Tech Park Avenue,<br />
-                                            Innovation Hub - 560001,<br />
-                                            Karnataka, India
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                            </Grid>
+        {/* Column 4: Contact Us */}
+        <div className="vgk-footer-col vgk-footer-contact">
+          <h3 className="vgk-footer-title">Contact Us</h3>
+          <p>8496044605</p>
+          <p>vishwagurukulam4u@gmail.com</p>
+          
+          <h3 className="vgk-footer-title vgk-mt-4">Location</h3>
+          <p>
+            VGK HUB Industrial premises,<br />
+            Ground floor plot NoQ1 old santhe maidana Lalanakere post Gandasi Han, Arasikere, KARNATAKA, 573119
+          </p>
+          <a href="#" className="vgk-footer-link-bold">See Directions ↗</a>
+        </div>
 
-                            {/* Contact Section */}
-                            <Grid item xs={12} sm={4}>
-                                <Typography variant="overline" sx={{ fontWeight: 900, mb: 3, display: "block", color: "#3b82f6", letterSpacing: "2px" }}>
-                                    Get In Touch
-                                </Typography>
-                                <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-                                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                                        <Box sx={{ p: 1, borderRadius: "8px", bgcolor: "rgba(96, 165, 250, 0.1)" }}><Phone size={18} color="#60a5fa" /></Box>
-                                        <Typography variant="body2" sx={{ fontWeight: 600 }}>+91 98765 43210</Typography>
-                                    </Box>
-                                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                                        <Box sx={{ p: 1, borderRadius: "8px", bgcolor: "rgba(96, 165, 250, 0.1)" }}><Mail size={18} color="#60a5fa" /></Box>
-                                        <Typography variant="body2" sx={{ fontWeight: 600 }}>contact@democoop.com</Typography>
-                                    </Box>
-                                </Box>
-                            </Grid>
+        {/* Column 5: Newsletter */}
+        <div className="vgk-footer-col vgk-footer-newsletter">
+          <h3 className="vgk-footer-title">Subscribe To Our Newsletter</h3>
+          <p className="vgk-footer-desc">
+            Be the first to see our latest products, hottest sales and member exclusive discount codes. Sign up below to get your 10% off coupon.
+          </p>
+          <form className="vgk-newsletter-form" onSubmit={(e) => e.preventDefault()}>
+            <input type="email" placeholder="Enter your e-mail id" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
 
-                            {/* Connect Section */}
-                            <Grid item xs={12} sm={4}>
-                                <Typography variant="overline" sx={{ fontWeight: 900, mb: 3, display: "block", color: "#3b82f6", letterSpacing: "2px" }}>
-                                    Follow Us
-                                </Typography>
-                                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5 }}>
-                                    {[Facebook, Twitter, Instagram, Linkedin].map((Icon, idx) => (
-                                        <IconButton
-                                            key={idx}
-                                            sx={{
-                                                color: "white",
-                                                bgcolor: "rgba(255,255,255,0.03)",
-                                                border: "1px solid rgba(255,255,255,0.08)",
-                                                transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                                                "&:hover": {
-                                                    bgcolor: "#3b82f6",
-                                                    color: "white",
-                                                    transform: "translateY(-5px) rotate(8deg)",
-                                                    boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)"
-                                                },
-                                            }}
-                                        >
-                                            <Icon size={20} />
-                                        </IconButton>
-                                    ))}
-                                </Box>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Grid>
-
-                <Divider sx={{ my: { xs: 3, md: 4 }, borderColor: "rgba(255,255,255,0.06)" }} />
-
-                {/* Bottom Bar */}
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: { xs: "column", md: "row" },
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        gap: { xs: 1.5, md: 2 },
-                    }}
-                >
-                    <Typography variant="caption" sx={{ opacity: 0.4, fontWeight: 600 }}>
-                        © {currentYear} DEMO CO-OPERATIVE. Designed for excellence.
-                    </Typography>
-
-                    <Box sx={{ display: "flex", gap: { xs: 2, sm: 5 }, flexWrap: "wrap", justifyContent: "center" }}>
-                        {["About Us", "Contact Us", "Privacy Policy", "Terms & Conditions", "Refund Policy"].map((label) => (
-                            <Link
-                                key={label}
-                                to={`/${label.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`}
-                                style={{
-                                    color: "white",
-                                    textDecoration: "none",
-                                    fontSize: "0.8rem",
-                                    opacity: 0.5,
-                                    fontWeight: 700,
-                                    transition: "all 0.3s ease",
-                                    borderBottom: "1px solid transparent"
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.opacity = "1";
-                                    e.currentTarget.style.color = "#60a5fa";
-                                    e.currentTarget.style.borderBottomColor = "#60a5fa";
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.opacity = "0.5";
-                                    e.currentTarget.style.color = "white";
-                                    e.currentTarget.style.borderBottomColor = "transparent";
-                                }}
-                            >
-                                {label}
-                            </Link>
-                        ))}
-                    </Box>
-                </Box>
-            </Container>
-        </Box>
-    );
-};
-
-export default Footer;
-
+      {/* Bottom Bar */}
+      <div className="vgk-footer-bottom">
+        <p>© 2025 — Copyright, All Rights reserved. Powered by Digital Showroom</p>
+        <div className="vgk-footer-payments">
+          <span className="vgk-payment-icon">Pay</span>
+          <span className="vgk-payment-icon">GPay</span>
+          <span className="vgk-payment-icon">Card</span>
+        </div>
+      </div>
+    </footer>
+  );
+}

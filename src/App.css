@@ -1,0 +1,54 @@
+/* ─── VGK Club — Global Design Tokens & Base Styles ─────────────────────── */
+
+/* Fonts loaded via index.html <link> */
+/* ── CSS Variables ── */
+:root {
+  --green-dark:  #186144;          /* real site brand green */
+  --green-nav:   #186144;          /* exact navbar bg from page source */
+  --green-mid:   #2d7a3a;
+  --gold:        #e8a000;
+  --gold-btn:    #e8a000;
+  --gold-hover:  #c88b00;
+  --cream-bg:    #f5f0e8;
+  --text-dark:   #1a1a1a;
+  --text-muted:  #555555;
+  --card-radius: 10px;
+  --font:        "DM Sans", "Inter", system-ui, sans-serif;
+}
+
+/* ── App shell ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: #fff;
+  color: var(--text-dark);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.vgk-app {
+  min-height: 100vh;
+}
+
+/* ── Shared section heading ── */
+.vgk-section-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* ── Webkit scrollbar (global) ── */
+::-webkit-scrollbar       { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: var(--green-dark); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }

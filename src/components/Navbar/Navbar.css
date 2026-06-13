@@ -1,0 +1,321 @@
+/* ─── Navbar — matches vgkhub.in exactly ─────────────────────────────────── */
+
+.vgk-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #186144;          /* exact real-site colour */
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+  min-height: 68px;
+  border-bottom: 1px solid rgba(17, 28, 54, 0.12);
+  transition: top 0.3s ease-in-out;
+}
+
+/* ── LEFT — nav links ─────────────────────────────────────────────────────── */
+.vgk-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: flex-start;
+  max-width: calc(50% - 18%);
+}
+
+.vgk-nav-item {
+  position: relative;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.vgk-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 5px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.9px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.vgk-nav-link:hover {
+  color: #ffd97a;
+}
+
+/* Underline reveal on hover */
+.vgk-nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 10px);
+  height: 1px;
+  background: #ffffff;
+  border-radius: 0.5px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.vgk-nav-item:hover::after {
+  opacity: 1;
+}
+
+/* Dropdown trigger icon */
+.vgk-nav-chevron {
+  display: flex;
+  align-items: center;
+  margin-left: 7px;
+  transition: transform 0.2s;
+}
+
+.vgk-nav-item.open .vgk-nav-chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.vgk-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  min-width: 165px;
+  z-index: 600;
+  animation: navDropFade 0.18s ease;
+}
+
+@keyframes navDropFade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.vgk-dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.vgk-dropdown-menu a:hover {
+  background: #f0f7f4;
+  color: #186144;
+}
+
+/* ── CENTRE — logo ────────────────────────────────────────────────────────── */
+.vgk-nav-logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 33%;
+}
+
+.vgk-nav-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Matches real site: 173 × 86.5 wide logo */
+.vgk-nav-logo img {
+  width: 173px;
+  height: 86.5px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── RIGHT — action icons ─────────────────────────────────────────────────── */
+.vgk-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+  justify-content: flex-end;
+  max-width: calc(50% - 18%);
+}
+
+.vgk-nav-icon {
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 6px;
+  transition: opacity 0.2s;
+  position: relative;
+}
+
+.vgk-nav-icon:hover {
+  opacity: 0.75;
+}
+
+/* Cart badge */
+.vgk-cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #e8a000;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* ── MOBILE hamburger ─────────────────────────────────────────────────────── */
+.vgk-nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── MOBILE slide-out panel ───────────────────────────────────────────────── */
+.vgk-mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 700;
+}
+
+.vgk-mobile-overlay.open {
+  display: block;
+}
+
+.vgk-mobile-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 265px;
+  height: 100%;
+  background: #186144;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  animation: slideInPanel 0.22s ease;
+  overflow-y: auto;
+}
+
+@keyframes slideInPanel {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+.vgk-mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  margin-bottom: 8px;
+}
+
+.vgk-mobile-logo img {
+  width: 110px;
+  object-fit: contain;
+}
+
+.vgk-mobile-close {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  padding: 4px;
+}
+
+.vgk-mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.15s;
+  cursor: pointer;
+}
+
+.vgk-mobile-link:hover {
+  background: rgba(255,255,255,0.08);
+  color: #ffd97a;
+}
+
+.vgk-mobile-sub-link {
+  display: block;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 10px 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: background 0.15s;
+}
+
+.vgk-mobile-sub-link:hover {
+  background: rgba(255,255,255,0.06);
+  color: #ffd97a;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .vgk-navbar {
+    padding: 12px 18px;
+  }
+
+  .vgk-nav-left,
+  .vgk-nav-right {
+    display: none;
+  }
+
+  .vgk-nav-hamburger {
+    display: flex;
+  }
+
+  .vgk-nav-logo {
+    max-width: unset;
+  }
+
+  .vgk-nav-logo img {
+    width: 120px;
+    height: 60px;
+  }
+}

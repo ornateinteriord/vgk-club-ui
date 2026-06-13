@@ -1,0 +1,135 @@
+/* ─── Hero Slider — full-width image with text overlay ───────────────────── */
+
+.vgk-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* Real site aspect ratio 1366/426 */
+  aspect-ratio: 1366 / 426;
+  background: var(--cream-bg);
+}
+
+/* ── Slide: stacks absolutely, full fill ─────────────────────────────────── */
+.vgk-hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vgk-hero-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Full-bleed image ────────────────────────────────────────────────────── */
+.vgk-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ── Text overlay — positioned on top of the image ──────────────────────── */
+.vgk-hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: right;
+  padding: 0 60px;
+  gap: 14px;
+}
+
+.vgk-hero-title {
+  font-size: clamp(1.4rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.vgk-hero-subtitle {
+  font-size: clamp(0.62rem, 0.9vw, 0.8rem);
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 380px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.vgk-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold-btn);
+  color: #fff;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: clamp(0.72rem, 1vw, 0.88rem);
+  letter-spacing: 1.2px;
+  padding: 10px 26px;
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(232, 160, 0, 0.4);
+  white-space: nowrap;
+  align-self: flex-end;
+}
+
+.vgk-hero-btn:hover {
+  background: var(--gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232, 160, 0, 0.5);
+}
+
+/* ── Dot indicators ──────────────────────────────────────────────────────── */
+.vgk-hero-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.vgk-hero-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.vgk-hero-dot.active {
+  background: var(--gold-btn);
+  transform: scale(1.3);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .vgk-hero {
+    aspect-ratio: unset;
+    min-height: 220px;
+  }
+
+  .vgk-hero-content {
+    padding: 0 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .vgk-hero-btn {
+    align-self: center;
+  }
+}

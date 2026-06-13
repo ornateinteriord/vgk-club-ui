@@ -1,0 +1,218 @@
+/* ─── Login Modal ────────────────────────────────────────────────────────── */
+
+.vgk-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.vgk-modal-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+  position: relative;
+  padding: 40px 32px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.vgk-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #e5e7eb;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.vgk-modal-close:hover {
+  background: #d1d5db;
+}
+
+/* ── Header ── */
+.vgk-modal-logo-wrap {
+  background: #f9fafb;
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.vgk-modal-logo-wrap img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.vgk-modal-welcome {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.vgk-modal-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 32px;
+}
+
+/* ── Body ── */
+.vgk-input-group {
+  margin-bottom: 24px;
+}
+
+.vgk-input-group label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.vgk-input-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.vgk-input-group input:focus {
+  border-color: var(--green-dark);
+}
+
+.vgk-input-group input::placeholder {
+  color: #aaa;
+}
+
+.vgk-input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.vgk-input-with-icon input {
+  padding-right: 48px;
+}
+
+.vgk-input-icon {
+  position: absolute;
+  right: 16px;
+  color: var(--green-dark);
+  display: flex;
+  align-items: center;
+}
+
+.vgk-modal-terms {
+  font-size: 0.85rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.vgk-modal-terms span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.vgk-modal-btn-primary {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--green-dark);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.vgk-modal-btn-primary:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.vgk-modal-btn-primary:not(:disabled):hover {
+  background: var(--green-mid);
+}
+
+.vgk-modal-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 32px 0;
+}
+
+.vgk-modal-divider::before,
+.vgk-modal-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.vgk-modal-divider span {
+  padding: 0 16px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.vgk-modal-btn-outline {
+  width: 100%;
+  padding: 16px;
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  color: #111;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: background 0.2s;
+}
+
+.vgk-modal-btn-outline:hover {
+  background: #f9fafb;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .vgk-modal-content {
+    padding: 32px 24px;
+  }
+  .vgk-modal-title {
+    font-size: 1.75rem;
+  }
+}

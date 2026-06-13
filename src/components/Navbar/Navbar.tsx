@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import "./Navbar.css";
 import logoImg from "../../assets/logo.png";
 import { Link } from "react-router-dom";
+import LoginModal from "../LoginModal/LoginModal";
 import { NAV_LINKS } from "../../data/homeData";
 import type { NavLink } from "../../types";
 import {
@@ -102,6 +103,7 @@ function NavItem({ link }: NavItemProps) {
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [isLoginOpen, setLoginOpen] = useState(false);
 
   return (
     <>
@@ -123,7 +125,7 @@ export default function Navbar() {
         {/* ── Right Icons (desktop) ── */}
         <div className="vgk-nav-right">
           <button className="vgk-nav-icon" title="Search">    <RealSearchIcon />   </button>
-          <button className="vgk-nav-icon" title="My Account"><RealUserIcon />     </button>
+          <button className="vgk-nav-icon" title="My Account" onClick={() => setLoginOpen(true)}><RealUserIcon />     </button>
           <button className="vgk-nav-icon" title="WhatsApp">  <RealWhatsAppIcon /></button>
           <button className="vgk-nav-icon" title="Cart" style={{ position: "relative" }}>
             <RealCartIcon />
@@ -193,6 +195,9 @@ export default function Navbar() {
           ))}
         </div>
       </div>
+
+      {/* ── Login Modal ── */}
+      <LoginModal isOpen={isLoginOpen} onClose={() => setLoginOpen(false)} />
     </>
   );
 }

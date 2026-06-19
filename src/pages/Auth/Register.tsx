@@ -15,21 +15,31 @@ import {
   Radio,
   RadioGroup,
   Checkbox,
+  Autocomplete,
   FormHelperText,
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
+
 } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import LockIcon from "@mui/icons-material/Lock";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import MapIcon from "@mui/icons-material/Map";
+import DomainIcon from "@mui/icons-material/Domain";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
+import ExploreIcon from "@mui/icons-material/Explore";
 import PhoneIcon from "@mui/icons-material/Phone";
 import WcIcon from "@mui/icons-material/Wc";
+
 import "./Register.scss";
 import { useGetSponserRef, useSignupMutation } from "../../api/Auth";
+import { useGetStates, useGetDistricts, useGetCitiesAndTaluks } from "../../api/Location";
 import { LoadingComponent } from "../../App";
+
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -45,6 +55,10 @@ const Register = () => {
     confirmPassword: "",
     mobileno: "",
     pincode: "",
+    state: "",
+    district: "",
+    city: "",
+    taluk: "",
   });
   
   const [isChecked, setIsChecked] = useState(false);
@@ -63,6 +77,15 @@ const Register = () => {
     error, 
     refetch 
   } = useGetSponserRef(formData.Sponsor_code);
+
+  const { data: states } = useGetStates();
+  const { data: districts } = useGetDistricts(formData.state);
+  const { data: citiesAndTaluks } = useGetCitiesAndTaluks(formData.state, formData.district);
+
+  const stateOptions = states || [];
+  const districtOptions = districts || [];
+  const cityOptions = citiesAndTaluks?.cities || [];
+  const talukOptions = citiesAndTaluks?.taluks || [];
 
   // Auto-populate sponsor code from URL when component mounts
   useEffect(() => {
@@ -482,6 +505,134 @@ const Register = () => {
                       },
                     },
                   }}
+                />
+
+                <Autocomplete
+                  options={stateOptions}
+                  value={formData.state || null}
+                  onChange={(_, newValue) => {
+                    handleChange({ target: { name: 'state', value: newValue || '' } } as any);
+                  }}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="State"
+                      name="state"
+                      fullWidth
+                      variant="outlined"
+                      InputProps={{
+                        ...params.InputProps,
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <MapIcon sx={{ color: '#2c8786' }} />
+                          </InputAdornment>
+                        ),
+                      }}
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          '&:hover fieldset': { borderColor: '#2c8786' },
+                          '&.Mui-focused fieldset': { borderColor: '#2c8786' }
+                        }
+                      }}
+                    />
+                  )}
+                />
+
+                <Autocomplete
+                  options={districtOptions}
+                  value={formData.district || null}
+                  onChange={(_, newValue) => {
+                    handleChange({ target: { name: 'district', value: newValue || '' } } as any);
+                  }}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="District"
+                      name="district"
+                      fullWidth
+                      variant="outlined"
+                      InputProps={{
+                        ...params.InputProps,
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <DomainIcon sx={{ color: '#2c8786' }} />
+                          </InputAdornment>
+                        ),
+                      }}
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          '&:hover fieldset': { borderColor: '#2c8786' },
+                          '&.Mui-focused fieldset': { borderColor: '#2c8786' }
+                        }
+                      }}
+                    />
+                  )}
+                />
+
+                <Autocomplete
+                  options={cityOptions}
+                  value={formData.city || null}
+                  onChange={(_, newValue) => {
+                    handleChange({ target: { name: 'city', value: newValue || '' } } as any);
+                  }}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="City"
+                      name="city"
+                      fullWidth
+                      variant="outlined"
+                      InputProps={{
+                        ...params.InputProps,
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <LocationCityIcon sx={{ color: '#2c8786' }} />
+                          </InputAdornment>
+                        ),
+                      }}
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          '&:hover fieldset': { borderColor: '#2c8786' },
+                          '&.Mui-focused fieldset': { borderColor: '#2c8786' }
+                        }
+                      }}
+                    />
+                  )}
+                />
+
+                <Autocomplete
+                  freeSolo
+                  options={talukOptions}
+                  value={formData.taluk || ''}
+                  onChange={(_, newValue) => {
+                    handleChange({ target: { name: 'taluk', value: newValue || '' } } as any);
+                  }}
+                  onInputChange={(_, newInputValue) => {
+                    handleChange({ target: { name: 'taluk', value: newInputValue } } as any);
+                  }}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="Taluk"
+                      name="taluk"
+                      fullWidth
+                      variant="outlined"
+                      InputProps={{
+                        ...params.InputProps,
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <ExploreIcon sx={{ color: '#2c8786' }} />
+                          </InputAdornment>
+                        ),
+                      }}
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          '&:hover fieldset': { borderColor: '#2c8786' },
+                          '&.Mui-focused fieldset': { borderColor: '#2c8786' }
+                        }
+                      }}
+                    />
+                  )}
                 />
                 
                 <FormControl

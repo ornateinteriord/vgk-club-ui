@@ -76,7 +76,7 @@ const Navbar = ({
             style={{ marginLeft: "12px", cursor: "pointer" }}
             onClick={() => navigate("/")}
           >
-            MSI
+            VGK-Club
           </Typography>
 
           <div style={{ marginLeft: "auto" }}>

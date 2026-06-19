@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -9,6 +9,8 @@ import {
   Card,
   CardContent,
   InputAdornment,
+  Checkbox,
+  FormControlLabel,
 } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import LockIcon from "@mui/icons-material/Lock";
@@ -20,6 +22,15 @@ const Login = () => {
     username: "",
     password: "",
   });
+  const [rememberMe, setRememberMe] = useState(false);
+
+  useEffect(() => {
+    const savedUsername = localStorage.getItem("rememberedUsername");
+    if (savedUsername) {
+      setFormData((prev) => ({ ...prev, username: savedUsername }));
+      setRememberMe(true);
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -34,6 +45,11 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (rememberMe) {
+      localStorage.setItem("rememberedUsername", formData.username);
+    } else {
+      localStorage.removeItem("rememberedUsername");
+    }
     mutate(formData);
   };
 
@@ -83,6 +99,22 @@ const Login = () => {
                       </InputAdornment>
                     ),
                   }}
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={rememberMe}
+                      onChange={(e) => setRememberMe(e.target.checked)}
+                      sx={{
+                        color: '#2c8786',
+                        '&.Mui-checked': {
+                          color: '#2c8786',
+                        },
+                      }}
+                    />
+                  }
+                  label={<Typography variant="body2">Remember me</Typography>}
+                  sx={{ mt: -1, mb: -1 }}
                 />
                 <Button
                   type="submit"
